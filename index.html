@@ -58,45 +58,59 @@
         <h1 id="sentText">Message Sent!</h1>
         <br>
         <button id="homePage" id="backToContent">Back to Form</button>
+        <button onclick="window.location.href='displayMessages.html'">Feedback</button>
     </div>
 
 ​
        <script>
         function invokeAWSAPI(e) {
-             e.preventDefault();           
-             var name = $("#form-name").val();
-             var phone = $("#form-phone").val();
-             var email = $("#form-email").val();
-             var msg = $("#form-message").val();
-             var data = {
-                name : name,
-                phone : phone,
-                email : email,
-                msg : msg
-              };
-      $.ajax({
-               type: "POST",
-               url : "https://cr6840jazb.execute-api.eu-west-1.amazonaws.com/dev/feedback",
-               dataType: "json",
-               crossDomain: "true",
-               contentType: "application/json; charset=utf-8",
-               data: JSON.stringify(data),
-               success: function () {
-                    console.log(data)
-                    console.log("Successful");
-                    $('#submit').hide();
-                    document.getElementById("contact-form").reset();
-                    $('#contact-form').hide();
-                    $('.sentSuccessPage').show();
-               },
-               error: function () {
-                    alert("Your submission was unsuccessful. Please try again.");
-               }});
-           }
-
-           $('#homePage').click(function () {
-               location.reload();
-           })
+                e.preventDefault();           
+                var name = $("#form-name").val();
+                var phone = $("#form-phone").val();
+                var email = $("#form-email").val();
+                var msg = $("#form-message").val();
+                var data = {
+                    name : name,
+                    phone : phone,
+                    email : email,
+                    msg : msg
+                };
+            $.ajax({
+                    type: "POST",
+                    url : "https://cr6840jazb.execute-api.eu-west-1.amazonaws.com/dev/feedback",
+                    dataType: "json",
+                    crossDomain: "true",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(data),
+                    success: function () {
+                            $('#submit').hide();
+                            document.getElementById("contact-form").reset();
+                            $('#contact-form').hide();
+                            $('.sentSuccessPage').show();
+                    },
+                    error: function () {
+                            alert("Your submission was unsuccessful. Please try again.");
+                    }
+            });
+            $.ajax({
+                    type: "POST",
+                    url : "https://cr6840jazb.execute-api.eu-west-1.amazonaws.com/dev/feedback-dynamo",
+                    dataType: "json",
+                    crossDomain: "true",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(data),
+    
+                    success: function () {
+                        console.log("Successful post to dynamo");
+                    },
+                    error: function () {
+                        console.log("unsuccessful - failed post to dynamo");
+                    }
+            });
+        }
+        $('#homePage').click(function () {
+            location.reload();
+        })
        </script>
     </body>
 </html>
