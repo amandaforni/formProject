@@ -52,18 +52,18 @@
     <form id="contact-form" class="post-reply" method="post">
         <h1>Let's Connect!</h1>
         <label for="name">Name: </label><br>
-        <input id="form-name" class="input" type="text" name="name" required />
+        <input id="form-name" class="input" type="text" name="name" minlength="1" required/>
         <br><br>
         <label for="email">Email: </label><br>
-        <input id="form-email" class="input" type="email" name="email" required />
+        <input id="form-email" class="input" type="email" name="email" minlength="4" required/>
         <br><br>
         <label for="phone">Phone Number: </label><br>
-        <input id="form-phone" class="input" type="phone" name="phone"  required/>
+        <input id="form-phone" class="input" type="phone" name="phone" minlength="4" required/>
         <br><br>
         <label for="message">Your Message: </label><br>
-        <textarea id="form-message" class="input" name="message"  required></textarea>
+        <textarea id="form-message" class="input" name="message" minlength="4" required></textarea>
         <br><br>
-        <button class="primary-button" onClick="invokeAWSAPI(event)" id="submit">Submit</button>
+        <button class="primary-button"  id="submit">Submit</button>
     </form>
     <div class="sentSuccessPage">
         <h1 id="sentText">Message Sent!</h1>
@@ -122,7 +122,22 @@
         $('#homePage').click(function () {
             location.reload();
         });
-       
+
+        function validate() {
+            var input = $('input').val();
+
+                if (input == "") {
+                    alert("All fields must be filled in");
+                }  else {
+                    invokeAWSAPI(event);
+                }
+
+        }
+
+        $('#submit').on('click', function() {
+            validate();
+        });
+        //onclick=invokeAWSAPI(event);
        </script>
     </body>
 </html>
