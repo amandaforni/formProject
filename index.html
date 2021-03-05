@@ -41,16 +41,16 @@
     <form id="contact-form" class="post-reply" method="post">
         <h1>Let's Connect!</h1>
         <label for="name">Name: </label><br>
-        <input id="form-name" class="input" type="text" name="name" placeholder="(Required)" required />
+        <input id="form-name" class="input" type="text" name="name" required />
         <br><br>
         <label for="email">Email: </label><br>
-        <input id="form-email" class="input" type="email" name="email" placeholder="(Required)" required />
+        <input id="form-email" class="input" type="email" name="email" required />
         <br><br>
         <label for="phone">Phone Number: </label><br>
-        <input id="form-phone" class="input" type="phone" name="phone" placeholder="(Optional)" />
+        <input id="form-phone" class="input" type="phone" name="phone"  required/>
         <br><br>
         <label for="message">Your Message: </label><br>
-        <textarea id="form-message" class="input" name="message" placeholder="(Required)"  required></textarea>
+        <textarea id="form-message" class="input" name="message"  required></textarea>
         <br><br>
         <button class="primary-button" onClick="invokeAWSAPI(event)" id="submit">Submit</button>
     </form>
@@ -110,7 +110,8 @@
         }
         $('#homePage').click(function () {
             location.reload();
-        })
+        });
+       
        </script>
     </body>
 </html>
