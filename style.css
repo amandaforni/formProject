@@ -1,7 +1,7 @@
 body {
-    background: rgb(2, 29, 29);     
+    background: var(--background);     
     text-align: center; 
-    color:rgb(221, 233, 233);
+    color: var(--text);
     font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
@@ -46,20 +46,20 @@ button {
     border-radius: 20px;
     height: 3em;
     width: 8em;
-    color: rgb(2, 29, 29);
-    background-color: rgb(221, 233, 233);;
+    color: var(--background);
+    background-color: var(--text);
     font-family: 'Poppins', sans-serif;
 }
 
 button:hover {
     cursor: pointer;
-    background-color: #ADC698;
+    background-color: var(--hover);
 }
 
 input, textarea {
     width: 70%;
     border-radius: 5px;
-    border: 1px solid rgb(221, 233, 233);
+    border: 1px solid var(--text);
     padding: 1%;
     text-align: center;
 	margin-top: 1%;
@@ -70,7 +70,7 @@ input:focus, textarea:focus, button:focus {
 }
 
 input:invalid, textarea:invalid {
-	box-shadow: 0 0 5px 1px rgb(2, 29, 29);
+	box-shadow: 0 0 5px 1px var(--background);
 }
 
 textarea {
@@ -101,7 +101,7 @@ textarea {
 	list-style: none;
 	width: 20px;
 	height: 20px;
-	background: #5B7553;
+	background: var(--circles1);
 	animation: animate 1s linear infinite;
 	bottom: calc(50% - 20vh);
 }
@@ -113,7 +113,7 @@ textarea {
 	animation-delay: 0s;
 	animation-duration: 16s;
 	border-radius: 50%;
-	background: #5B7553;
+	background: var(--circles1);
 }
 
 .circles li:nth-child(2) {
@@ -123,7 +123,7 @@ textarea {
 	animation-delay: 0s;
 	animation-duration: 9s;
 	border-radius: 50%;
-	background: #5B7553;
+	background: var(--circles1);
 	
 }
 
@@ -134,7 +134,7 @@ textarea {
 	animation-delay: 0s;
 	animation-duration: 15s;
 	border-radius: 50%;
-	background: #5B7553;
+	background: var(--circles1);
 }
 
 .circles li:nth-child(4) {
@@ -144,7 +144,7 @@ textarea {
 	animation-delay: 0s;
 	animation-duration: 12s;
 	border-radius: 50%;
-	background: #ADC698;
+	background: var(--hover);
 }
 
 .circles li:nth-child(5) {
@@ -154,7 +154,7 @@ textarea {
 	animation-delay: 0s;
 	animation-duration: 8s;
 	border-radius: 50%;
-	background: #ADC698;
+	background: var(--hover);
 }
 
 .circles li:nth-child(6) {
@@ -164,7 +164,7 @@ textarea {
 	animation-delay: 0s;
 	animation-duration: 10s;
 	border-radius: 50%;
-	background: #FFFFFF;
+	background: var(--circles2);
 }
 
 .circles li:nth-child(7) {
@@ -174,7 +174,7 @@ textarea {
 	animation-delay: 0s;
 	animation-duration: 18s;
 	border-radius: 50%;
-	background: #FFFFFF;
+	background: var(--circles2);
 }
 
 .circles li:nth-child(8) {
@@ -184,7 +184,7 @@ textarea {
 	animation-delay: 0s;
 	animation-duration: 14s;
 	border-radius: 50%;
-	background: #C3E8BD;
+	background: var(--circles3);
 }
 
 .circles li:nth-child(9) {
@@ -194,7 +194,7 @@ textarea {
 	animation-delay: 0s;
 	animation-duration: 18s;
 	border-radius: 50%;
-	background: #C3E8BD;
+	background: var(--circles3);
 }
 
 .circles li:nth-child(10) {
@@ -204,7 +204,7 @@ textarea {
 	animation-delay: 0s;
 	animation-duration: 17s;
 	border-radius: 50%;
-	background: #9DDBAD;
+	background: var(--circles4);
 }
 
 .circles li:nth-child(11) {
@@ -214,7 +214,7 @@ textarea {
 	animation-delay: 0s;
 	animation-duration: 7s;
 	border-radius: 50%;
-	background: #9DDBAD;
+	background: var(--circles4);
 }
 
 @keyframes animate {
@@ -289,6 +289,10 @@ textarea {
 	content: "";
 	display: table;
 	clear: both;
+  }
+
+  #app {
+	  margin: 5%;
   }
   
   /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
