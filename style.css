@@ -265,22 +265,23 @@ textarea {
 	}
 }
 
-/* display messages css */
+/* display messages css
 * {
 	box-sizing: border-box;
-  }
+  } */
   
   /* Create three equal columns that floats next to each other */
   .column {
 	color: white;
 	height: 80%;
 	float: left;
-	width: 15.33%;
+	/* width: 25.33%; */
 	margin: 15px;
 	padding: 15px;
 	background: rgba(255,255,255,0.5);
 	backdrop-filter: blur(10px);
 	border-radius: 10px;
+	font-size: 15px;
   } 
   
   /* Clear floats after the columns */
